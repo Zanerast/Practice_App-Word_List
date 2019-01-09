@@ -17,11 +17,11 @@ public class WordRepo {
 		allWordsList = wordDao.getAllWords();
 	}
 
-	public LiveData<List<WordEntity>> getAllWordsList(){
+	LiveData<List<WordEntity>> getAllWordsList(){
 		return this.allWordsList;
 	}
 
-	public void insert(final WordEntity wordEntity){
+	void insert(final WordEntity wordEntity){
 		Exeggutor.getExeggutor().diskIo().execute(new Runnable() {
 			@Override
 			public void run() {
@@ -29,4 +29,23 @@ public class WordRepo {
 			}
 		});
 	}
+
+	void deleteAll(){
+		Exeggutor.getExeggutor().diskIo().execute(new Runnable() {
+			@Override
+			public void run() {
+				wordDao.deleteAll();
+			}
+		});
+	}
+
+	void deleteWord(final WordEntity wordEntity){
+		Exeggutor.getExeggutor().diskIo().execute(new Runnable() {
+			@Override
+			public void run() {
+				wordDao.deleteWord(wordEntity);
+			}
+		});
+	}
+
 }

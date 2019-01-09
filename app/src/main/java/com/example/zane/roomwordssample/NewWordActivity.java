@@ -10,6 +10,7 @@ import android.widget.EditText;
 public class NewWordActivity extends AppCompatActivity {
 
 	public static final String EXTRA_REPLY = "extra_reply";
+	public static final String UPDATE_WORD = "update_word";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

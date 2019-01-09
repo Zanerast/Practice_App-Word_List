@@ -23,8 +23,24 @@ abstract class WordRoomDatabase extends RoomDatabase {
 								// .addCallback(roomCallback)
 								.build();
 			}
+			getAnyWord();
 		}
 		return DATABASE_INSTANCE;
+	}
+
+	private static void getAnyWord(){
+		final String[] initWordsList = {"Default", "Word", "List"};
+		Exeggutor.getExeggutor().diskIo().execute(new Runnable() {
+			@Override
+			public void run() {
+				if (DATABASE_INSTANCE.wordDao().getAnyWord().length < 1){
+					for (String word : initWordsList) {
+						WordEntity wordEntity = new WordEntity(word);
+						DATABASE_INSTANCE.wordDao().insert(wordEntity);
+					}
+				}
+			}
+		});
 	}
 
 	// Start the app with a clean database every time.

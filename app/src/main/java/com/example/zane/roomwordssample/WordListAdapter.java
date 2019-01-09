@@ -1,5 +1,7 @@
 package com.example.zane.roomwordssample;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,12 +16,14 @@ import java.util.List;
 public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
 
 	private List<WordEntity> wordList;
+	private Context context;
 
 	WordListAdapter() {}
 
 	@NonNull
 	@Override
 	public WordViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+		context = viewGroup.getContext();
 		View viewHolder = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_rv, viewGroup, false);
 		return new WordViewHolder(viewHolder);
 	}
@@ -36,9 +40,13 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 		return 0;
 	}
 
-	public void setWordList(List<WordEntity> wordList) {
+	void setWordList(List<WordEntity> wordList) {
 		this.wordList = wordList;
 		notifyDataSetChanged();
+	}
+
+	WordEntity getWordAtPosition(int position){
+		return wordList.get(position);
 	}
 
 	/**
@@ -57,5 +65,6 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 		void bind() {
 			tvWord.setText(wordList.get(getAdapterPosition()).getWord());
 		}
+
 	}
 }
