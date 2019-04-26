@@ -1,7 +1,7 @@
 # Practice App - Word List - Android Room Architecture Components
 
 ## Project Overview
-Course from [Android Developers Codelabs](https://codelabs.developers.google.com/android-training/) 10.1 Room, LiveData, & ViewModel
+Course from [Android Developers Codelabs](https://codelabs.developers.google.com/android-training/) - 10.1 Room, LiveData, & ViewModel
 
 The app, called RoomWordsSample, stores a list of words in a Room database and displays the list in a RecyclerView. 
 
