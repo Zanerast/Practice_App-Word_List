@@ -12,14 +12,7 @@ To learn how to design and construct an app using some of the Android Architectu
 
 
 
-## The RoomWordsSample app does the following:
-- Works with a database to get and save words, and pre-populates the database with some words
-
-- Displays all the words in a RecyclerView in MainActivity
-
-
-
-## This application implements:
+## This app does the following:
 - UI controller
 
 - ViewModel
